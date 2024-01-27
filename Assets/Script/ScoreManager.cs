@@ -35,7 +35,7 @@ public class ScoreManager : MonoBehaviour
     {
         if (scorePlayerOne > scorePlayerTwo)
         {
-            //KingLookLeft();
+            KingLookLeft();
         }
     }
 
@@ -45,10 +45,23 @@ public class ScoreManager : MonoBehaviour
         ScoreTextOne.text = scorePlayerOne.ToString() + "Score";
     }
 
+    public void AddPointsPlayerTwo()
+    {
+        scorePlayerTwo += 1;
+        ScoreTextTwo.text = scorePlayerTwo.ToString() + "Score";
+    }
+
     public void KingLookLeft()
     {
         InitialKing.SetActive(false);
         RightKing.SetActive(false);
         LeftKing.SetActive(true);
+    }
+
+    public void KingLookRight()
+    {
+        InitialKing.SetActive(false);
+        RightKing.SetActive(true);
+        LeftKing.SetActive(false);
     }
 }
