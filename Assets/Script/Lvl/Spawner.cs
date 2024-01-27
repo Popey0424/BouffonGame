@@ -112,7 +112,7 @@ public class ImageSpawner : MonoBehaviour
 
     void ImproveMoveSpeed()
     {
-        Debug.Log("ImproveSpeed " + moveSpeed);
+       
 
 
         if (moveSpeed <= maxMoveSpeed)

@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using DG.Tweening;
+using Unity.VisualScripting;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -17,6 +18,14 @@ public class ScoreManager : MonoBehaviour
     public GameObject PrefabHitPointPlayerOne;
     public GameObject PrefabHitPointPlayerTwo;
     public Canvas Canvas;
+
+    
+    public static int Multiplication_Player_One_Commun = 0;
+    public static int Multiplication_Player_Two_Commun = 0;
+    public static int test_static = 0;
+    //public int Multiplication_Player_Two;
+    //public GameObject PlayerOne_Script;
+    //public GameObject PlayerTwo_Script;
 
     int scorePlayerOne = 0;
     int scorePlayerTwo = 0;
@@ -55,19 +64,20 @@ public class ScoreManager : MonoBehaviour
 
     public void AddPointsPlayerOne()
     {
-        scorePlayerOne += 1;
+        scorePlayerOne += 1 * Multiplication_Player_One_Commun;
         ScoreTextOne.text = scorePlayerOne.ToString() + "Score";
         GameObject go = GameObject.Instantiate(PrefabHitPointPlayerOne, Canvas.transform, false);
         go.transform.localPosition = /*new Vector3(0, 0, 0);*/ UnityEngine.Random.insideUnitCircle * 100;
         go.transform.DOLocalMoveY(150, 0.8f);
         go.GetComponent<Text>().DOFade(0, 0.8f);
         GameObject.Destroy(go, 0.8f);
+       
 
     }
 
     public void AddPointsPlayerTwo()
     {
-        scorePlayerTwo += 1;
+        scorePlayerTwo += 1 * Multiplication_Player_Two_Commun;
         ScoreTextTwo.text = scorePlayerTwo.ToString() + "Score";
         GameObject go = GameObject.Instantiate(PrefabHitPointPlayerTwo, Canvas.transform, false);
         go.transform.localPosition = /*new Vector3(0, 0, 0);*/ UnityEngine.Random.insideUnitCircle * 100;
