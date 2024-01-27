@@ -11,13 +11,10 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject MenuPause;
     [SerializeField] private Image ImageFade;
 
-    void Update()
+    public void OnClickPause()
     {
-        if (Keyboard.current.escapeKey.wasPressedThisFrame)
-        {
-            MenuPause.SetActive(true);
-            Time.timeScale = 0f;
-        }
+        Time.timeScale = 0f;
+        MenuPause.SetActive(true);
     }
 
     public void OnClickResume()
