@@ -18,6 +18,7 @@ public class Activator : MonoBehaviour
         if (Input.GetKeyDown(key) && active)
         {
             Destroy(note);
+            ScoreManager.instance.AddPointsPlayerOne();
         }
         
     }
