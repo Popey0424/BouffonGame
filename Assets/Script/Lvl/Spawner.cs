@@ -24,6 +24,7 @@ public class ImageSpawner : MonoBehaviour
     [Header("Touches pas Simon ou Pauline")]
     public float X;
     public float Y;
+    
 
     void Start()
     {
@@ -77,6 +78,7 @@ public class ImageSpawner : MonoBehaviour
         ImproveMoveSpeed();
         // Déplacez l'image en fonction de la direction (vers la droite ou vers la gauche)
         StartCoroutine(Right ? MoveImage(rectTransform) : MoveImage_2(rectTransform));
+        
     }
 
     //Move de l'image vers la droite
@@ -107,6 +109,19 @@ public class ImageSpawner : MonoBehaviour
 
 
     }
+
+    IEnumerator MoveImage_Diagonale(RectTransform rectTransform)
+    {
+        // Déplacement continu vers la droite
+        while (true)
+        {
+            rectTransform.anchoredPosition += Vector2.right * Vector2.up * moveSpeed * Time.deltaTime;
+
+            // Attendez jusqu'au prochain frame
+            yield return null;
+        }
+    }
+
 
     //Augmente la speed a chauqe image spawn
 
