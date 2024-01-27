@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -13,9 +14,14 @@ public class ScoreManager : MonoBehaviour
     public GameObject InitialKing;
     public GameObject LeftKing;
     public GameObject RightKing;
+    public GameObject PrefabHitPointPlayerOne;
+    public GameObject PrefabHitPointPlayerTwo;
+    public Canvas Canvas;
 
     int scorePlayerOne = 0;
     int scorePlayerTwo = 0;
+
+
 
 
     private void Awake()
@@ -37,18 +43,38 @@ public class ScoreManager : MonoBehaviour
         {
             KingLookLeft();
         }
+        else if (scorePlayerOne < scorePlayerTwo)
+        {
+            KingLookRight();
+        }
+        else if (scorePlayerOne == scorePlayerTwo)
+        {
+            KingLookFront();
+        }
     }
 
     public void AddPointsPlayerOne()
     {
         scorePlayerOne += 1;
         ScoreTextOne.text = scorePlayerOne.ToString() + "Score";
+        GameObject go = GameObject.Instantiate(PrefabHitPointPlayerOne, Canvas.transform, false);
+        go.transform.localPosition = /*new Vector3(0, 0, 0);*/ UnityEngine.Random.insideUnitCircle * 100;
+        go.transform.DOLocalMoveY(150, 0.8f);
+        go.GetComponent<Text>().DOFade(0, 0.8f);
+        GameObject.Destroy(go, 0.8f);
+
     }
 
     public void AddPointsPlayerTwo()
     {
         scorePlayerTwo += 1;
         ScoreTextTwo.text = scorePlayerTwo.ToString() + "Score";
+        GameObject go = GameObject.Instantiate(PrefabHitPointPlayerTwo, Canvas.transform, false);
+        go.transform.localPosition = /*new Vector3(0, 0, 0);*/ UnityEngine.Random.insideUnitCircle * 100;
+        go.transform.DOLocalMoveY(150, 0.8f);
+        go.GetComponent<Text>().DOFade(0, 0.8f);
+        GameObject.Destroy(go, 0.8f);
+
     }
 
     public void KingLookLeft()
@@ -62,6 +88,13 @@ public class ScoreManager : MonoBehaviour
     {
         InitialKing.SetActive(false);
         RightKing.SetActive(true);
+        LeftKing.SetActive(false);
+    }
+
+    public void KingLookFront()
+    {
+        InitialKing.SetActive(true);
+        RightKing.SetActive(false);
         LeftKing.SetActive(false);
     }
 }

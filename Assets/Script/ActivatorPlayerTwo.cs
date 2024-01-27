@@ -19,7 +19,7 @@ public class ActivatorPlayerTwo : MonoBehaviour
         if (Input.GetKeyDown(key) && active)
         {
             Destroy(note);
-            ScoreManager.instance.AddPointsPlayerOne();
+            ScoreManager.instance.AddPointsPlayerTwo();
         }
 
     }
