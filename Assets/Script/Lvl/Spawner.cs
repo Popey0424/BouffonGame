@@ -22,8 +22,8 @@ public class ImageSpawner : MonoBehaviour
     public Transform canvasTransform;
 
     [Header("Touches pas Simon ou Pauline")]
-    public int X;
-    public int Y;
+    public float X;
+    public float Y;
 
     void Start()
     {
