@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
+using Unity.VisualScripting;
+using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Activator : MonoBehaviour
 {
@@ -12,8 +13,9 @@ public class Activator : MonoBehaviour
     bool active = false;
     GameObject note;
     public float Degat;
-    public float Chauge;
+    //public float Chauge;
     public TMP_Text Multiplicateur_One;
+    public GameObject Spines;
 
     void Start()
     {
@@ -52,11 +54,14 @@ public class Activator : MonoBehaviour
             ScoreManager.Multiplication_Player_One_Commun++;
             Multiplicateur_One.text = ScoreManager.Multiplication_Player_One_Commun.ToString() + " multiplicateur";
             ScoreManager.instance.AddPointsPlayerOne();
+            Spines.GetComponent<StopStartSpineAnimation>().Activation = true;
+            //AnimationSpines
         }
         else if (Input.GetKeyDown(key) && !active)
         {
             ScoreManager.Multiplication_Player_One_Commun = 0;
             ScoreManager.ChaugeCommune -= Degat;
+            
             if(ScoreManager.ChaugeCommune <= 0)
             {
                 SceneManager.LoadScene("Victoire_Gauche");

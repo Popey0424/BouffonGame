@@ -16,6 +16,7 @@ public class ActivatorPlayerTwo : MonoBehaviour
     bool active = false;
     GameObject note;
     public TMP_Text Multiplicateur_Two;
+    public GameObject Spines2;
     void Start()
     {
         ScoreManager.ChaugeCommune2 = 1f;
@@ -54,8 +55,12 @@ public class ActivatorPlayerTwo : MonoBehaviour
         {
             Destroy(note);
             ScoreManager.Multiplication_Player_Two_Commun++;
+            print(ScoreManager.Multiplication_Player_Two_Commun++ + "Multiplitest");
             Multiplicateur_Two.text = ScoreManager.Multiplication_Player_Two_Commun.ToString() + " multiplicateur";
             ScoreManager.instance.AddPointsPlayerTwo();
+            
+            Spines2.GetComponent<AnimaSPineELora>().Activation2 = true;
+            //print(Spines2.GetComponent<AnimaSPineELora>().Activation2 + "ActivationPlayerTwo");
         }
     
 
