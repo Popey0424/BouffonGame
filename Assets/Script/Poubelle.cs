@@ -24,6 +24,7 @@ public class Poubelle : MonoBehaviour
         if (collision.gameObject.tag == "Note")
         {
             note = collision.gameObject;
+           
         }
 
 

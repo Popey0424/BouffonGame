@@ -19,6 +19,7 @@ public class ScoreManager : MonoBehaviour
     public GameObject PrefabHitPointPlayerTwo;
     public Canvas Canvas;
 
+
     
     public static int Multiplication_Player_One_Commun = 0;
     public static int Multiplication_Player_Two_Commun = 0;
@@ -27,6 +28,9 @@ public class ScoreManager : MonoBehaviour
     //public GameObject PlayerOne_Script;
     //public GameObject PlayerTwo_Script;
 
+
+    public static float ChaugeCommune;
+    public static float ChaugeCommune2;
     int scorePlayerOne = 0;
     int scorePlayerTwo = 0;
 
@@ -45,7 +49,7 @@ public class ScoreManager : MonoBehaviour
         ScoreTextTwo.text = scorePlayerTwo.ToString() + "Score";
     }
 
-    // Update is called once per frame
+    // Update is called once per frame+
     void Update()
     {
         if (scorePlayerOne > scorePlayerTwo)
