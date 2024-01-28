@@ -59,7 +59,7 @@ public class Activator : MonoBehaviour
             ScoreManager.ChaugeCommune -= Degat;
             if(ScoreManager.ChaugeCommune <= 0)
             {
-                SceneManager.LoadScene("NomDeVotreScene");
+                SceneManager.LoadScene("Victoire_Gauche");
                 ScoreManager.ChaugeCommune = 0;
             }
             ChangeFillAmount(ScoreManager.ChaugeCommune);

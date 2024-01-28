@@ -47,7 +47,7 @@ public class ActivatorPlayerTwo : MonoBehaviour
     {
         if(ScoreManager.ChaugeCommune2 <= 0)
         {
-            SceneManager.LoadScene("Victoire_Gauche");
+            SceneManager.LoadScene("Victoire_Droite");
         }
 
         if (Input.GetKeyDown(key) && active)
