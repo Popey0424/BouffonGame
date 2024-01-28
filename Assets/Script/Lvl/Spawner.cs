@@ -3,7 +3,7 @@ using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ImageSpawner : MonoBehaviour
+public class Spawner : MonoBehaviour
 {
     public GameObject Image_Visuel;  // Faites référence à votre prefab d'image dans l'inspecteur Unity
 
